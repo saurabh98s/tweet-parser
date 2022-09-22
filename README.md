@@ -1,4 +1,4 @@
-hr@wednesday.is
+
 
 
 ### Example cURL request
@@ -13,60 +13,61 @@ curl --location --request PUT '127.0.0.1:8000/split_tweets' \
 ```
 [
     {
-        "label": 1,
-        "Tweet": "After thoroughly study of humanitarian intervention"
+        "tweet": "1/19:After thoroughly study of"
     },
     {
-        "label": 2,
-        "Tweet": " over analysis of responsibility to protect the co"
+        "tweet": "2/19: humanitarian intervention over analysis of"
     },
     {
-        "label": 3,
-        "Tweet": "me to an end where all this argument leads to doct"
+        "tweet": "3/19: responsibility to protect the come to"
     },
     {
-        "label": 4,
-        "Tweet": "rine of responsibility to protect has not succeede"
+        "tweet": "4/19: an end where all this argument leads"
     },
     {
-        "label": 5,
-        "Tweet": "d in establishing agreed upon conditions and metho"
+        "tweet": "5/19: to doctrine of responsibility to"
     },
     {
-        "label": 6,
-        "Tweet": "ds for intervening in case of humanitarian crisis."
+        "tweet": "6/19: protect has not succeeded in"
     },
     {
-        "label": 7,
-        "Tweet": " The complete failure of United Nations peacekeepi"
+        "tweet": "7/19: establishing agreed upon conditions and"
     },
     {
-        "label": 8,
-        "Tweet": "ng and security council after numerous need the cr"
+        "tweet": "8/19: methods for intervening in case of"
     },
     {
-        "label": 9,
-        "Tweet": "ies of slaughtered millions from show many years t"
+        "tweet": "9/19: humanitarian crisis. The complete failure"
     },
     {
-        "label": 10,
-        "Tweet": "o current situation became worst slaughter in Biaf"
+        "tweet": "10/19: of United Nations peacekeeping and"
     },
     {
-        "label": 11,
-        "Tweet": "ra, Uganda, Burnudi, Indonesia, Bangladesh and Sud"
+        "tweet": "11/19: security council after numerous need"
     },
     {
-        "label": 12,
-        "Tweet": "an in which current era Afghanistan, Russia Ukrain"
+        "tweet": "12/19: the cries of slaughtered millions"
     },
     {
-        "label": 13,
-        "Tweet": "e war we will finally say that legitimateness Of t"
+        "tweet": "13/19: from show many years to current"
     },
     {
-        "label": 14,
-        "Tweet": "hese mass "
+        "tweet": "14/19: situation became worst slaughter in"
+    },
+    {
+        "tweet": "15/19: Biafra, Uganda, Burnudi, Indonesia,"
+    },
+    {
+        "tweet": "16/19: Bangladesh and Sudan in which"
+    },
+    {
+        "tweet": "17/19: current era Afghanistan, Russia Ukraine"
+    },
+    {
+        "tweet": "18/19: war we will finally say that"
+    },
+    {
+        "tweet": "19/19: legitimateness Of these mass "
     }
 ]
 
