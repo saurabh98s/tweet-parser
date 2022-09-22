@@ -2,10 +2,12 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 
 	"net/http"
 	"wednesday-app/models"
+	"wednesday-app/utils"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -17,45 +19,27 @@ func BreakWords(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Errorln(err)
 	}
-	var temp string
-
 	chunk := string(responseData)
-	tweet := []rune(chunk)
-	label := 1
-	counter := 0
-	for chars := 0; chars < len(tweet); chars++ {
-		var text models.Tweets
-
-		temp += string(tweet[chars])
-		if chars == len(tweet)-1 {
-			w.Header().Set("Content-Type", "application/json")
-			text.Tweet = temp
-			text.Label = label
-			tweetArray = append(tweetArray, text)
-		}
-
-		if chars/50 == label {
-			text.Tweet = temp
-			text.Label = label
-			tweetArray = append(tweetArray, text)
-
-			temp = ""
-			counter = 0
-			label++
-		}
-		counter++
+	if chunk == "" {
+		log.Infoln("no data recieved in body")
+		w.Write([]byte("no data recieved in body"))
+		return
+	}
+	resultArray, _ := utils.CountAndPartition(chunk)
+	for i, v := range resultArray {
+		
+		temp:= fmt.Sprintf("%d/%d:%s", i+1, len(resultArray), v)
+		tweetArray = append(tweetArray, models.Tweets{Tweet: temp})
 	}
 	textArrayConverted, err := json.Marshal(tweetArray)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-
+	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(textArrayConverted)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
 
 	log.Infoln(tweetArray)
-
-	log.Println(len(tweet))
 }
